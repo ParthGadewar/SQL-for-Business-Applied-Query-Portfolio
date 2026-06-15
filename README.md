@@ -3,7 +3,6 @@
 
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![Cases](https://img.shields.io/badge/Cases-02-blue)
 
 ---
 
