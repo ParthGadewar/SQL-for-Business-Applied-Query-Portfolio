@@ -46,7 +46,6 @@ This is not a collection of solutions. It is a record of applied thinking.
 | Case | Problem | Core Concept | Difficulty | Platform |
 |------|---------|--------------|------------|----------|
 | [01](./Case01-Green-Healthy-Filter/) | Recyclable and Low Fat Products | Basic filtering, ENUM | Easy | LeetCode #1757 |
-| [02](./Case02-Customer-Referee/) | Find Customer Referee | NULL handling | Easy | LeetCode #584 |
 
 *(Updated as new cases are added)*
 
@@ -97,7 +96,3 @@ This portfolio is relevant if you are looking for someone who can:
 
 **LinkedIn:** https://www.linkedin.com/in/parth-r-gadewar/
 
-
-- The folder links in the Case Index will work automatically once the folders exist in the repo
-
-This README makes the repo look like a serious, intentional project — not just a dump of SQL files.
