@@ -45,7 +45,10 @@ This is not a collection of solutions. It is a record of applied thinking.
 
 | Case | Problem | Core Concept | Difficulty | Platform |
 |------|---------|--------------|------------|----------|
-| [01](./Case01-Green-Healthy-Filter/) | Recyclable and Low Fat Products | Basic filtering, ENUM | Easy | LeetCode #1757 |
+| [01](./Case01-Green-Healthy-Filter/) | Recyclable and Low Fat Products | Basic filtering, ENUM | Easy |
+| [02](./Case02-Customer-Referee/) | Find Customer Referee | NULL Handling, WHERE Clause | Easy | LeetCode #584 |
+
+
 
 *(Updated as new cases are added)*
 
