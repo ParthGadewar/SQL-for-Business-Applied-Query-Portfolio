@@ -1,4 +1,4 @@
-# Case 03 — OR vs AND Trap
+# Case 03 — Large market filter
 
 **Platform:** LeetCode #595
 **Difficulty:** Easy
