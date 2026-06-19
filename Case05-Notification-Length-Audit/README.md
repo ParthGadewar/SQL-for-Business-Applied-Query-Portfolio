@@ -1,6 +1,6 @@
 
 
-# Case 05 — Notification Length Audit
+# Case 05 — Characters exceeding the limit
 
 **Platform:** LeetCode #1683  
 **Difficulty:** Easy  
