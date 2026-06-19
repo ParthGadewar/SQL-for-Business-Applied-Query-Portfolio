@@ -20,33 +20,15 @@ The data team is asked: *"Give us a clean, deduplicated list of author IDs who h
 
 ---
 
-## Table Structure
-
-```sql
-CREATE TABLE Views (
-    article_id INT,
-    author_id  INT,
-    viewer_id  INT,
-    view_date  DATE
-);
--- No primary key — duplicate rows are possible
--- author_id = viewer_id means the same person viewed their own article
-```
-
----
-
-## Sample Data
-
-```sql
-INSERT INTO Views VALUES
-(1, 3, 5, '2019-08-01'),
-(1, 3, 6, '2019-08-02'),
-(2, 7, 7, '2019-08-01'),  -- author 7 viewed their own article
-(2, 7, 7, '2019-08-02'),  -- same author, same article, different date (duplicate scenario)
-(4, 7, 1, '2019-07-22'),
-(3, 4, 4, '2019-07-21'),  -- author 4 viewed their own article
-(3, 4, 4, '2019-07-21');  -- exact duplicate row
-```
+| article_id | author_id | viewer_id | view_date  | Notes                              |
+|------------|-----------|-----------|------------|------------------------------------|
+| 1          | 3         | 5         | 2019-08-01 |                                    |
+| 1          | 3         | 6         | 2019-08-02 |                                    |
+| 2          | 7         | 7         | 2019-08-01 | author 7 viewed their own article  |
+| 2          | 7         | 7         | 2019-08-02 | same author, different date        |
+| 4          | 7         | 1         | 2019-07-22 |                                    |
+| 3          | 4         | 4         | 2019-07-21 | author 4 viewed their own article  |
+| 3          | 4         | 4         | 2019-07-21 | exact duplicate row                |
 
 > **Test design note:** Author 7 appears twice as a self-viewer across different dates. Author 4 has an exact duplicate row. Both cases confirm that `DISTINCT` is doing real work here — not just theoretical cleanup.
 
