@@ -1,4 +1,4 @@
-# Case 04 — The Self-Reader Signal
+# Case 04 — The View count cheat
 
 **Platform:** LeetCode #1148
 
