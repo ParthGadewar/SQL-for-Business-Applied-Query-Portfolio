@@ -1,8 +1,11 @@
 # Case 04 — The Self-Reader Signal
 
 **Platform:** LeetCode #1148
+
 **Difficulty:** Easy
+
 **SQL Concept:** Self-referencing filter, DISTINCT deduplication, column aliasing
+
 **Business Framing:** Content platform editorial analytics
 
 ---
