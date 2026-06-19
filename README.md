@@ -48,6 +48,7 @@ This is not a collection of solutions. It is a record of applied thinking.
 | [01](./Case01-Green-Healthy-Filter/) | Recyclable and Low Fat Products | Basic filtering, ENUM | Easy |
 | [02](./Case02-Customer-Referee/) | Find Customer Referee | NULL Handling, WHERE Clause | Easy | LeetCode #584 |
 | [03](./Case03-Large-Market-Filter) | Find the biggest market | Multi-condition filtering, OR vs AND | Easy | LeetCode #595 |
+| [04](Case04-Author-Caught-Reading) | Article Views Analysis | DISTINCT, Self-reference filter | Easy | LeetCode #1148 |
 
 
 
