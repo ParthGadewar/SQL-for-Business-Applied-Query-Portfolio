@@ -49,6 +49,8 @@ This is not a collection of solutions. It is a record of applied thinking.
 | [02](./Case02-Customer-Referee/) | Find Customer Referee | NULL Handling, WHERE Clause | Easy | LeetCode #584 |
 | [03](./Case03-Large-Market-Filter) | Find the biggest market | Multi-condition filtering, OR vs AND | Easy | LeetCode #595 |
 | [04](Case04-Author-Caught-Reading) | Article Views Analysis | DISTINCT, Self-reference filter | Easy | LeetCode #1148 |
+| [05](./Case05-Notification-Length-Audit/) | Tweets Length Audit | String filtering, CHAR_LENGTH() | Easy | LeetCode #1683 |
+| [06](./Case06-Acquisition-ID-Mapping/) | Replace Employee ID With The Unique Identifier | LEFT JOIN, NULL preservation | Easy | LeetCode #1378 |
 
 
 
