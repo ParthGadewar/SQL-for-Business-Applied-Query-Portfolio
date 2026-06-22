@@ -1,8 +1,11 @@
 # Case 07 — Commission Sales Lookup
 
 **Platform:** LeetCode #1068
+
 **Difficulty:** Easy
+
 **SQL Concept:** INNER JOIN across two tables
+
 **Business Framing:** Electronics distributor commission payout report
 
 ---
