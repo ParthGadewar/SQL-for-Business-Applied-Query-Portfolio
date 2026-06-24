@@ -51,6 +51,9 @@ This is not a collection of solutions. It is a record of applied thinking.
 | [04](Case04-Author-Caught-Reading) | Article Views Analysis | DISTINCT, Self-reference filter | Easy | LeetCode #1148 |
 | [05](./Case05-Notification-Length-Audit/) | Tweets Length Audit | String filtering, CHAR_LENGTH() | Easy | LeetCode #1683 |
 | [06](./Case06-Acquisition-ID-Mapping/) | Replace Employee ID With The Unique Identifier | LEFT JOIN, NULL preservation | Easy | LeetCode #1378 |
+| [07](./Case07-Commission-Sales-Lookup/) | Commission Sales Lookup | INNER JOIN, JOIN type selection | Easy | LeetCode #1068 |
+| [08](./Case08-Browse-No-Purchase/) | Browse No Purchase | LEFT JOIN, IS NULL pattern | Easy | LeetCode #1581 |
+| [09](./Case09-Footfall-Spike-Analysis/) | Footfall Spike Analysis | Self Join, DATEDIFF | Easy | LeetCode #197 |
 
 
 
