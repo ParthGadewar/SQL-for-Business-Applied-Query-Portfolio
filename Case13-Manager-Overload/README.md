@@ -1,4 +1,4 @@
-# Case 13 — Span of Control Violation
+# Case 13 — Manager Overload
 ### SQL for Business: Applied Query Portfolio
 
 ---
