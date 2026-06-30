@@ -48,7 +48,7 @@ The fraud and risk team wants a per-user confirmation rate report. A user who co
 
 ## Mysql workbench setup
 
--- Case 14: OTP Confirmation Rate (Fintech 2FA) — Workbench Setup
+```sql
 
 CREATE TABLE Users (
     user_id INT PRIMARY KEY,
@@ -77,6 +77,7 @@ INSERT INTO OTPVerifications (user_id, attempt_timestamp, status) VALUES
 (203, '2024-05-05 16:00:00', 'confirmed'),
 (203, '2024-05-07 17:20:00', 'timeout');
 
+```
 ## Solution Query
 
 ```sql
