@@ -49,7 +49,6 @@ The fraud and risk team wants a per-user confirmation rate report. A user who co
 ## Mysql workbench setup
 
 ```sql
-
 CREATE TABLE Users (
     user_id INT PRIMARY KEY,
     signup_date DATETIME
@@ -76,8 +75,8 @@ INSERT INTO OTPVerifications (user_id, attempt_timestamp, status) VALUES
 (202, '2024-05-06 09:45:00', 'confirmed'),
 (203, '2024-05-05 16:00:00', 'confirmed'),
 (203, '2024-05-07 17:20:00', 'timeout');
-
 ```
+
 ## Solution Query
 
 ```sql
