@@ -150,4 +150,3 @@ The instinct is to write `o.status` inside a plain `COUNT()` and assume it's saf
 
 ---
 
-Ready for the LinkedIn post whenever you want it — separately, as usual.
