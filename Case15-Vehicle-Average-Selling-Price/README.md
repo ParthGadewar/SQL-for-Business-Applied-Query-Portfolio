@@ -88,7 +88,7 @@ GROUP BY mp.model_id, mp.model_name;
 ```
 
 ## Query walkthrough — how it executes step by step:
-```
+
 
 **`LEFT JOIN VehicleSales vs ON mp.model_id = vs.model_id`** — `ModelPrices` is the left table, so every model survives the join even with zero matching sales. Honda Civic gets a row of all-NULL columns from `VehicleSales`, but it still appears in the result. An `INNER JOIN` here would silently drop it — exactly the kind of report that goes uncaught until someone asks "why isn't this model showing up anywhere?"
 
@@ -102,9 +102,7 @@ GROUP BY mp.model_id, mp.model_name;
 
 **`IFNULL(..., 0)`** — catches that `NULL` and converts it to `0`, which is what the business actually wants displayed for a model with no sales — not a blank, not an error, just `0.00`.
 
-**`GROUP BY mp.model_id, mp.model_name`** — grouping on the left table's key is deliberate. Grouping on a column from `VehicleSales` would risk inconsistent behavior for unmatched models. Grouping on `mp.model_id` guarantees one clean row per listed model, full stop.
-
----
+**`GROUP BY mp.model_id, mp.model_name`** — grouping on the left table's key is deliberate. Grouping on a column from `VehicleSales` would risk inconsistent behavior for unmatched models. Grouping on `mp.model_id` guarantees one clean row per listed model.
 
 
 ## Why This Approach
