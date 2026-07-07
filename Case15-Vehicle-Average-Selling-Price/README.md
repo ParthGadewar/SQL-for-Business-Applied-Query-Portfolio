@@ -89,15 +89,19 @@ GROUP BY mp.model_id, mp.model_name;
 
 ## Query walkthrough — how it executes step by step:
 
-FROM ModelPrices mp — start from the price table, since it's the one that can't lose rows (Civic has no sales but must still show up).
-LEFT JOIN VehicleSales vs ON mp.model_id = vs.model_id — link by model.
-AND vs.sale_date BETWEEN mp.start_date AND mp.end_date — this second join condition is what pins each sale to the correct price period. Without it, RAV4's January and February price rows would each match every RAV4 sale, duplicating rows.
-LEFT JOIN result: RAV4 rows get matched properly (Jan sales → $32000, Feb sales → $30500). Civic gets one row with vs.units_sold and vs.price as NULL since nothing matched.
-SUM(vs.units_sold * mp.price) — total revenue-equivalent per model across all matched sales.
-SUM(vs.units_sold) — total units sold per model.
-Division gives the weighted average. For Civic, this is NULL / NULL → NULL.
-IFNULL(..., 0) — converts that NULL to 0, satisfying the "no sales → report 0" business rule.
-GROUP BY mp.model_id, mp.model_name — collapses all matched sale rows per model into one aggregated row.
+LEFT JOIN VehicleSales vs ON mp.model_id = vs.model_id — ModelPrices is the left table, so every model survives the join even with zero matching sales. Honda Civic gets a row of all-NULL columns from VehicleSales, but it still appears in the result. An INNER JOIN here would silently drop it — exactly the kind of report that goes uncaught until someone asks "why isn't this model showing up anywhere?"
+
+AND vs.sale_date BETWEEN mp.start_date AND mp.end_date — this second join condition is what pins each sale to the correct price period. Without it, RAV4's January and February price rows would each match every RAV4 sale, duplicating rows and corrupting the weighted average.
+
+SUM(vs.units_sold * mp.price) — multiplies each matched sale's unit count by the price active during that period, then sums it into a total revenue-equivalent per model. This can't be done with a plain AVG(price) — that would treat a price with 20 units sold the same as a price with 2.
+
+SUM(vs.units_sold) — total units sold per model. For a model with real sales, this is a straightforward count. For Civic, every vs.units_sold value from the join is NULL, and SUM() ignores NULLs — so her total comes out to exactly NULL (not 0), since summing zero non-NULL rows returns NULL, not 0.
+
+... / SUM(vs.units_sold) — dividing anything by NULL returns NULL (not an error, not a crash) — so Civic's average becomes NULL instead of triggering a divide-by-zero failure.
+
+IFNULL(..., 0) — catches that NULL and converts it to 0, which is what the business actually wants displayed for a model with no sales — not a blank, not an error, just 0.00.
+
+GROUP BY mp.model_id, mp.model_name — grouping on the left table's key is deliberate. Grouping on a column from VehicleSales would risk inconsistent behavior for unmatched models. Grouping on mp.model_id guarantees one clean row per listed model, full stop.
 
 ## Why This Approach
 
