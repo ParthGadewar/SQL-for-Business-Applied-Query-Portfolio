@@ -37,6 +37,39 @@ For every vehicle model:
 | sale_date | DATE |
 | units_sold | INT |
 
+## SQL workbench setup
+
+```sql
+CREATE TABLE ModelPrices (
+    model_id INT,
+    model_name VARCHAR(50),
+    start_date DATE,
+    end_date DATE,
+    price INT
+);
+
+CREATE TABLE VehicleSales (
+    model_id INT,
+    sale_date DATE,
+    units_sold INT
+);
+
+INSERT INTO ModelPrices (model_id, model_name, start_date, end_date, price) VALUES
+(1, 'Toyota RAV4', '2024-01-01', '2024-01-31', 32000),
+(1, 'Toyota RAV4', '2024-02-01', '2024-02-29', 30500),
+(2, 'Honda CR-V',  '2024-01-01', '2024-02-29', 34000),
+(3, 'Honda Civic', '2024-01-01', '2024-02-29', 24000);
+
+INSERT INTO VehicleSales (model_id, sale_date, units_sold) VALUES
+(1, '2024-01-10', 15),
+(1, '2024-01-25', 10),
+(1, '2024-02-05', 20),
+(1, '2024-02-20', 5),
+(2, '2024-01-15', 8),
+(2, '2024-02-10', 12);
+-- model_id 3 (Civic) intentionally has zero sales rows
+```
+
 ## SQL Solution
 
 ```sql
@@ -53,6 +86,18 @@ LEFT JOIN VehicleSales vs
     AND vs.sale_date BETWEEN mp.start_date AND mp.end_date
 GROUP BY mp.model_id, mp.model_name;
 ```
+
+## Query walkthrough — how it executes step by step:
+
+FROM ModelPrices mp — start from the price table, since it's the one that can't lose rows (Civic has no sales but must still show up).
+LEFT JOIN VehicleSales vs ON mp.model_id = vs.model_id — link by model.
+AND vs.sale_date BETWEEN mp.start_date AND mp.end_date — this second join condition is what pins each sale to the correct price period. Without it, RAV4's January and February price rows would each match every RAV4 sale, duplicating rows.
+LEFT JOIN result: RAV4 rows get matched properly (Jan sales → $32000, Feb sales → $30500). Civic gets one row with vs.units_sold and vs.price as NULL since nothing matched.
+SUM(vs.units_sold * mp.price) — total revenue-equivalent per model across all matched sales.
+SUM(vs.units_sold) — total units sold per model.
+Division gives the weighted average. For Civic, this is NULL / NULL → NULL.
+IFNULL(..., 0) — converts that NULL to 0, satisfying the "no sales → report 0" business rule.
+GROUP BY mp.model_id, mp.model_name — collapses all matched sale rows per model into one aggregated row.
 
 ## Why This Approach
 
