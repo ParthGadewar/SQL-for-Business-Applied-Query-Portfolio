@@ -88,7 +88,7 @@ GROUP BY mp.model_id, mp.model_name;
 ```
 
 ## Query walkthrough — how it executes step by step:
-
+```
 
 **`LEFT JOIN VehicleSales vs ON mp.model_id = vs.model_id`** — `ModelPrices` is the left table, so every model survives the join even with zero matching sales. Honda Civic gets a row of all-NULL columns from `VehicleSales`, but it still appears in the result. An `INNER JOIN` here would silently drop it — exactly the kind of report that goes uncaught until someone asks "why isn't this model showing up anywhere?"
 
