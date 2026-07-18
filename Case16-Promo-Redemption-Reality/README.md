@@ -1,4 +1,4 @@
-# Case 17: When Loyalty Doesn't Mean Redemption — Measuring Promo Reach in Retail
+# Case 16: When Loyalty Doesn't Mean Redemption — Measuring Promo Reach in Retail
 
 ## Business Scenario
 
