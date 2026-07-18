@@ -1,7 +1,12 @@
+# Case 17: When Loyalty Doesn't Mean Redemption — Measuring Promo Reach in Retail
 
 ## Business Scenario
 
-A retail chain runs a loyalty program and periodically launches promotional campaigns — holiday discounts, flash sales, birthday rewards. Every campaign gets pushed to the entire member base, but not everyone redeems every promo.
+A mid-sized retail chain — think a regional grocery or apparel brand — runs a loyalty program with tens of thousands of enrolled members. Every few weeks, the marketing team launches a new promotional campaign: a holiday discount, a flash sale, a birthday reward, a category-specific coupon. Each campaign is pushed out to the entire loyalty base through email, app notifications, and in-store signage.
+
+But reach isn't redemption. Marketing has visibility into how many promos went out — what they don't have, without digging through raw redemption logs, is a clean answer to which promos actually landed. Some campaigns get near-universal pickup because the offer is timely and relevant. Others quietly flop because of poor targeting, bad timing (a beach-gear discount in December), or an incentive that isn't strong enough to change behavior.
+
+Right now, comparing promo performance means manually cross-referencing the full member list against redemption records for each campaign — slow, error-prone, and not something anyone wants to repeat every reporting cycle.
 
 ## Business Question
 
