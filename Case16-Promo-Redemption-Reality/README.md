@@ -1,4 +1,3 @@
----
 
 ## Business Scenario
 
@@ -108,6 +107,4 @@ The scalar subquery runs once and MySQL treats it as a constant for the query pl
 
 This query gives marketing a ranked, promo-by-promo redemption leaderboard in one pass — no manual cross-referencing of member lists against redemption logs. Promos consistently below a threshold (say, 40%) become candidates for retirement or redesign; promos near 100% become templates worth repeating.
 
----
 
-Want me to update the memory to reflect this new README structure (Business Scenario + Business Question split, setup script before solution query) for future cases, or is this a one-off for Case 17?
